@@ -35,7 +35,38 @@ hr.rounded {
 
 
 
+.project-class{
+    display:flex;
+    width: 30%;;
+}
 
+.project-class ul{
+    list-style: none;
+    display:flex;
+    justify-content: space-between;
+}
+
+.project-class li{
+    /* display: flex; */
+    padding-top: 20px;
+    width: 30%;
+}
+
+.project-1{
+    flex:1;
+    order:1;
+}
+
+.project-2{
+    flex:1;
+    order:2;
+}
+
+.project-class-hr{
+    height: 2px;
+    border-top: 2px solid #668b89;
+    border-radius: 10px;
+}
 
 
 .code_link_button1{
