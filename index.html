@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farhan Miraz Shihab</title>
+    
+
+    
     <link rel="stylesheet" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Yatra One' rel='stylesheet'>
@@ -13,24 +16,37 @@
     <link href='https://fonts.googleapis.com/css?family=Convergence' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Darker Grotesque' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    <script src="https://kit.fontawesome.com/4819b39a8f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <SECTion class="home-section">
-        <div class="home-nav">
-            <!-- <img src="logo.jpg" alt="name_logo" height="50" width="50"> -->
-        
+    <Section class="home-section">
             <nav class="nav-class">
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT ME</a></li>
-                    <li><a href="#">TIMELINE</a></li>
-                    <li><a href="#">PROJECTS</a></li>
-                    <li><a href="#">ACTIVITIES</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                </ul>
+                <img id="logo-img" src="logo.jpg" alt="name_logo" >
+                <div class="home-nav">
+                    <input type="checkbox" id="click">
+               
+                    <label for="click" class="menu-btn">
+                        
+                    <i class="fas fa-bars"></i>
+                    </label>
+                                    
+                    <ul>
+                        <li><a class="active" href="#">HOME</a></li>
+                        <li><a href="#">ABOUT ME</a></li>
+                        <li><a href="#">TIMELINE</a></li>
+                        <li><a href="#">PROJECTS</a></li>
+                        <li><a href="#">ACTIVITIES</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                    </ul>
+                
+                </div>
             </nav>
-        </div>
+        
     
 
         <div>
@@ -47,7 +63,7 @@
             <img src="instagram.png" alt="Instagram Profile"
                 onclick="window.open('https://www.instagram.com/farhanmirazshihab/')" height="30" width="30">
         </div>
-    </SECTion>
+    </Section>
 
     <hr class="rounded">
     <br>
@@ -232,7 +248,7 @@
                         <input type="text" placeholder="Your Name *">
                         <input type="email" placeholder="Your Email *">
                     </div>
-                    <div class="input-wrap-2">
+                    <div class="input-wrap-2">===
                         <input type="text" placeholder="Your Subject...">
                         <textarea name="" id="" cols="30" rows="10" placeholder="Your Message..."></textarea>
                     </div>

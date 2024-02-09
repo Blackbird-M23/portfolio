@@ -1,4 +1,7 @@
 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 hr.rounded {
     height: 5px;
     border-top: 8px solid #8b6666;
@@ -7,11 +10,148 @@ hr.rounded {
 }
 
 .home-nav{
-    padding: 10px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(14, 14, 39);
+    height: 80px;
 }
 
-.nav-class li, a{
+#logo-img{
+    width:  3.9rem;
+    height: 3.9rem;
+    border-radius: 50%;
+    margin:1.2rem 2.5rem;
+}
+
+ 
+
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* .header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    box-shadow: 0 2px 16px hsl(220, 32%, 8%, .3);
+    z-index: 100;
+} */
+
+.nav-class{
+    font-family: Montserrat;
+    height: 80px;
+    background: rgb(14, 14, 39);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-class ul{
+    display: flex;
+    list-style: none;
+    margin: 0 50px;
+    padding-left: 20px;
+}
+
+.nav-class ul li a{
+    color: rgb(219, 216, 216);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 0px 30px;
+    border-radius: 5px;
+}
+
+.nav-class ul li a:hover, 
+.nav-class ul li a.active{
+    color: rgb(0, 43, 160);
+    background-color:rgb(240, 240, 240);
+}
+
+.menu-btn i{
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+#click, .menu-btn i{
+    display: none;
+}
+
+@media (max-width : 940px){
+    .menu-btn i{
+        display: block;
+        margin-right: 3rem;
+    }
+    #click:checked ~ .menu-btn i::before{
+        content: "\f00d";
+    }
+    
+
+    .nav-class ul{
+        opacity: 97%;
+        position: fixed;
+        left: -150%;
+        background: rgb(14, 14, 39);
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.4s;
+        top: 5rem;
+    }
+    .nav-class ul li{
+        margin: 3rem 0;
+    }
+    .nav-class ul li a {
+        font-size: 20px;
+    }
+
+    .nav-class ul li a:hover, 
+    .nav-class ul li a.active{
+        color: rgb(0, 43, 160);
+        background-color:rgb(240, 240, 240);
+    }
+
+    #click:checked ~ ul{
+        left: 0%;
+    }
+
+}
+
+
+/* .menu_line, .close_line{
+    color: white;
+} */
+
+/* .menu_line, .close_line{
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    inset: 0;
+    margin: auto;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: opacity .1s, transform .4s;
+} */
+
+/* .close_line{
+    opacity: 0;
+} */
+
+/* .home-nav{
+    
+    padding: 10px;
+    display: flex;
+} */
+
+/* .nav-class li, a{
     font-family: "Monsterrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -21,17 +161,17 @@ hr.rounded {
     display: inline-block;
     padding-left: 2%;
     padding: 0px 25px;
-}
+} */
 
 
 
-.nav-class li a{
+/* .nav-class li a{
     transition: akk 0.3s ease 0s;
 }
 
 .nav-class li a:hover{
     color:orange
-}
+} */
 
 
 
