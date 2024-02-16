@@ -1,0 +1,211 @@
+
+
+/* Media Query for responsiveness */
+@media only screen and (max-width: 600px) {
+    .about-me-container {
+        width: 90%;
+    }
+    
+}
+
+
+
+@media (max-width : 940px){
+    .menu-btn i{
+        display: block;
+        margin-right: 3rem;
+    }
+    #click:checked ~ .menu-btn i::before{
+        content: "\f00d";
+    }
+    
+    .nav-class{
+        height: 3rem;
+    }
+
+    #logo-img{
+        height: 2.8rem;
+        width: 2.8rem;
+    }
+    .home-nav{
+        height: 2.8rem;
+    }
+
+    .nav-class ul{
+        opacity: 97%;
+        position: fixed;
+        left: -150%;
+        background: rgb(14, 14, 39);
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.4s;
+        top: 3rem;
+    }
+    .nav-class ul li{
+        margin: 3rem 0;
+    }
+    .nav-class ul li a {
+        font-size: 20px;
+    }
+
+    .nav-class ul li a:hover{
+        color: rgb(0, 43, 160);
+        background-color:rgb(240, 240, 240);
+    }
+
+    #click:checked ~ ul{
+        left: 0%;
+    }
+
+    .home-section{
+        background-color: #5e74c2;
+        height: 50rem;
+    }
+    .home-img-soc{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size:x-large;
+        height: 80%;
+        padding-top: 5rem;
+    }
+    #home-img img{
+        grid-area: home-img;
+        height: 200px;
+        width: 300px;
+        margin-bottom: 5rem;
+    }
+    
+    #socials {
+        text-align: center;
+        justify-content: center;
+    }
+    .social-links{
+        padding-left: 0rem;
+        align-items: center;
+    }
+
+    .home-img-soc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .about-me-container {
+        text-align: center;
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-img img {
+        /* margin: auto; */
+        border-radius: 5%;
+        margin-bottom: 2rem;
+        height:190px;
+        width: 320px;
+    }
+
+    .exp-details-container{
+        display: flex;
+        justify-content: space-evenly;
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .timeline-container{
+        padding: 4%;
+    }
+    
+    .timeline-details{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .timeline-details img{
+        margin-bottom: 0.5rem;
+    }
+
+    .project-container{
+        width: 100%;
+        /* margin: 0rem; */
+    }
+    .project-holder ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 4rem;
+        /* align-items: center; */
+    }
+
+    .project-holder ul li{
+        align-items: center;
+        width: 93%;
+        margin: 0rem;
+        margin-bottom: 4rem;
+    }
+
+    .project-details{
+        width: 100%;
+        text-align: center;
+    }
+    .project-img{
+        margin: 2rem;
+    }
+
+    .books-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fav-book li, .recent-book li{
+        display: flex;
+        flex-direction: column;
+        border-color: #feb47b;
+        border-width: medium;
+        justify-content: center;
+        width: 100%;
+        margin: 0 1rem;
+        margin-left: 0;
+        margin-right: 0;  
+    }
+    
+    .book-description{
+        justify-content: center;
+        text-align: center;
+        border: #ffaa2a;
+        border-style :groove;
+        margin-right:2rem;
+        margin-left:2rem;
+        margin-bottom:5rem;
+        padding: 1rem;
+    }
+
+    .card-wrapper h1, h5, .text{
+        text-align: center;
+    }
+
+    .form-class{
+        display: flex;
+        flex-direction: column;
+        /* text-align: center; */
+        justify-content: space-between;
+    }
+
+
+
+    
+
+    
+}

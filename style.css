@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-home-div{
+    height: 100%;
+}
+
 hr.rounded {
     height: 5px;
     border-top: 8px solid #8b6666;
@@ -16,7 +26,7 @@ hr.rounded {
     justify-content: center;
     align-items: center;
     background-color: rgb(14, 14, 39);
-    height: 80px;
+    height: 5rem;
 }
 
 #logo-img{
@@ -26,29 +36,29 @@ hr.rounded {
     margin:1.2rem 2.5rem;
 }
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 
 .nav-class{
     font-family: Montserrat;
     height: 80px;
+    width: 100%;
     background: rgb(14, 14, 39);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
 }
 
 .nav-class ul{
     display: flex;
     list-style: none;
-    margin: 0 50px;
-    padding-left: 20px;
+    /* margin: 0 50px; */
+    /* margin-left: 6rem; */
+    align-items: center;
 }
 
+.nav-class li{
+    text-align: center;
+}
 .nav-class ul li a{
     color: rgb(219, 216, 216);
     text-decoration: none;
@@ -56,10 +66,10 @@ hr.rounded {
     font-size: 18px;
     padding: 0px 30px;
     border-radius: 5px;
+    text-align: center;
 }
 
-.nav-class ul li a:hover, 
-.nav-class ul li a.active{
+.nav-class ul li a:hover{
     color: rgb(0, 43, 160);
     background-color:rgb(240, 240, 240);
 }
@@ -75,28 +85,34 @@ hr.rounded {
 }
 
 
-
+#home-img img{
+    height: 190px;
+    width: 380px;
+}
 .home-img-soc{
     display: flex;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 15%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     font-size:x-large;
+    height: 80%;
+    padding-top: 10rem;
 }
-.home-img{
-    grid-area: home-img;
-}
+
 #socials-intro{
     text-align: center;
     margin-bottom: 3rem;
 }
 #socials{
-    margin: auto;
     grid-area: socials;
+}
+.social-links{
+    padding-left: 35%;
 }
 
 .about-me-container {
     text-align: center;
-    max-width:fit-content;
+    width: 100%;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -104,7 +120,6 @@ hr.rounded {
 }
 
 .about-img img {
-    display: flex;
     margin: auto;
     border-radius: 5%;
     margin-bottom: 2rem;
@@ -140,14 +155,9 @@ hr.rounded {
 .exp-details-container{
     display: flex;
     justify-content: space-evenly;
-    /* gap: 3%; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* flex-direction: row; */
     width: auto;
     margin-left: 100px;
     margin-right: 100px;
-
 }
 
 .skills-container{
@@ -169,7 +179,7 @@ hr.rounded {
 }
 
 
-.det-container{
+.skill-details-container{
     width: auto;
     /* margin:5px; */
     display: flex;
@@ -252,24 +262,24 @@ article{
 } */
 .project-container {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: space-evenly;
 }
 
-.project-details {
+.project-holder {
     width: 100%;
 }
 
-.project-details ul {
+.project-holder ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    /* padding: 0; */
+    /* margin: 0; */
     display: flex;
     justify-content: center;
 }
 
-.project-details ul li {
+.project-holder ul li {
     text-align: center; 
     margin: 0 10px; 
     width: 50%;
@@ -292,138 +302,134 @@ article{
 
 .project-description button{
     margin-top: 1.3rem;
-}
-
-/* Media Query for responsiveness */
-@media only screen and (max-width: 600px) {
-    .about-me-container {
-        width: 90%;
-    }
-    
-}
-
-
-
-@media (max-width : 940px){
-    .menu-btn i{
-        display: block;
-        margin-right: 3rem;
-    }
-    #click:checked ~ .menu-btn i::before{
-        content: "\f00d";
-    }
-    
-
-    .nav-class ul{
-        opacity: 97%;
-        position: fixed;
-        left: -150%;
-        background: rgb(14, 14, 39);
-        height: 100vh;
-        width: 100%;
-        text-align: center;
-        display: block;
-        transition: all 0.4s;
-        top: 5rem;
-    }
-    .nav-class ul li{
-        margin: 3rem 0;
-    }
-    .nav-class ul li a {
-        font-size: 20px;
-    }
-
-    .nav-class ul li a:hover, 
-    .nav-class ul li a.active{
-        color: rgb(0, 43, 160);
-        background-color:rgb(240, 240, 240);
-    }
-
-    #click:checked ~ ul{
-        left: 0%;
-    }
-
-    .home-section{
-        background-color: #5e74c2;
-        height: 50rem;
-    }
-
-    #home-img {
-        grid-area: home-img;
-        height: fit-content;
-        width: fit-content;
-    }
-    
-    #socials {
-        grid-area: socials;
-        justify-self: center; 
-        margin-left:auto;
-    }
-
-    .home-img-soc {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: 
-            "home-img"
-            "socials";
-    }
-    
-    
-    
-
-}
-
-
-
-.project-class{
-    display:flex;
-    width: 30%;;
-}
-
-.project-class ul{
-    list-style: none;
-    display:flex;
-    justify-content: space-between;
-}
-
-.project-class li{
-    /* display: flex; */
-    padding-top: 20px;
-    width: 30%;
-}
-
-.project-1{
-    flex:1;
-    order:1;
-}
-
-.project-2{
-    flex:1;
-    order:2;
-}
-
-.project-class-hr{
-    height: 2px;
-    border-top: 2px solid #668b89;
-    border-radius: 10px;
-}
-
-
-.code_link_button1{
-    background-color: rgb(107, 204, 253);
-    color:black;
-    padding: 2px 10px; /* Adjusting padding*/
-    border-radius: 10px; /* Setting border-radius for rounded corners */
-    border: none;
-    cursor: pointer;
-}
-
-.code_link_button2{
-    background-color: rgb(246, 242, 37);
+    background-color: rgb(134, 197, 252);
     color:black;
     padding: 2px 10px; 
     border-radius: 10px; 
     border: none;
     cursor: pointer;
+    height: 2rem;
+    width: 5rem;
 }
+
+.books-div{
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.fav-book li{
+    display: flex;
+    flex-direction: column;
+    border-color: #feb47b;
+    border-width: medium;
+    justify-content: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+
+.recent-book li{
+    display: flex;
+    flex-direction: column;
+    border-color: #feb47b;
+    border-width: medium;
+    justify-content: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+
+.book-description{
+    justify-content: center;
+    text-align: center;
+    border: #ffaa2a;
+    border-style :groove;
+    margin-right:5rem;
+    margin-left:5rem;
+    margin-bottom:5rem;
+    padding: 2rem;
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+}
+
+.card-wrapper h1{
+    font-family: Mulish, sans-serif;
+}
+.card-wrapper h5{
+    font-family: Quicksand, sans-serif;
+}
+
+.card-wrapper-socials{
+    margin: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.message-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Mulish, sans-serif;
+    border-radius: 5%;
+    border-color: #668b89;
+    border-style: double;
+    padding: 1rem;
+}
+
+.form-class{
+    align-items:flex-start;
+}
+
+.form-class input,textarea{
+    margin: 0.5rem;
+    /* margin:1rem; */
+}
+
+.fields{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-evenly;
+}
+
+.fields input, textarea{
+    height: 100%;
+    width: 100%;
+    padding: 0 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    /* margin: 1rem; */
+}
+
+.message-div button{
+    font-weight: 400;
+    transition: all 300ms ease;
+    padding: 1rem;
+    height: 3rem;
+    width: 8rem;
+    border-radius: 2rem;
+    background: rgb(71, 156, 173);
+    color: white;
+    margin-top: 1rem;
+}
+
+.copyright{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
