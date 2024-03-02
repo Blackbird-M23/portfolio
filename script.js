@@ -42,7 +42,7 @@ scrollToTopBtn.addEventListener("click", () => {
 
 // contact form
 
-$('.contact form').submit(function (event) {
+$('.form-class').submit(function (event) {
   event.preventDefault();
 
   var name = $('input[name=name]').val().trim();

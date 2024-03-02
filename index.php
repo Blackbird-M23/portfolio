@@ -552,23 +552,6 @@ WHERE social_img_src = 'github.png'; -->
                 </div>
                 
                 <div class="message-div">
-                
-                    <!-- // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    //     $name = $_POST["name"];
-                    //     $email = $_POST["email"];
-                    //     $subject = $_POST["subject"];
-                    //     $message = $_POST["body"];
-
-                    //     $sql = "INSERT INTO your_table_name (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
-
-                    //     if (mysqli_query($connection, $sql)) {
-                    //         echo "Message sent successfully.";
-                    //     } else {
-                    //         echo "Error: " . $sql . "<br>" . mysqli_error($connecction);
-                    //     }
-                    // }
-                    */ -->
-                
 
                     <div class="message-div-header">
                         <h1>Message me</h1>
