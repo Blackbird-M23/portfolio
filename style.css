@@ -40,7 +40,7 @@ hr.rounded {
 }
 
 .home-section{
-    background-color: #5e74c2;
+    /* background-color: #5e74c2; */
     height: 40rem;
 }
 
@@ -51,6 +51,11 @@ hr.rounded {
     background-color: rgb(14, 14, 39);
     height: 5rem;
 }
+
+.MyName{
+    color: rgb(255, 208, 0);
+}
+
 
 #logo-img{
     width:  3.9rem;
@@ -129,9 +134,18 @@ hr.rounded {
 #socials{
     grid-area: socials;
 }
+
 .social-links{
-    padding-left: 35%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2rem;
 }
+
+.about-me-header{
+    margin: 2rem;
+}
+
 
 .about-me-container {
     text-align: center;
@@ -140,6 +154,10 @@ hr.rounded {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-img{
+    margin-top: 2rem;
 }
 
 .about-img img {
@@ -266,14 +284,21 @@ article{
     background-color: rgb(230, 243, 255);
 }
 
-.timeline-container ul li a{
+/* .timeline-container a{
     text-decoration: none;
-    color: rgb(78, 58, 227);
-}
+    color: rgb(78, 58, 227); 
+} */
 
 .timeline-container li p{
     margin-top: 0.6rem;
 }
+
+.timeline-details a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: rgb(78, 58, 227);
+}
+
 
 
 
@@ -310,7 +335,7 @@ article{
     border-style: dashed;
     padding: 0.5rem;
     padding-bottom: 1rem;
-    background-image: linear-gradient(to right, #ff7e5f, #feb47b, #ffcc80);
+    background-image: linear-gradient(to right, #fa6e4b, #feb47b, #efc484);
 }
 
 .project-img{
@@ -376,6 +401,34 @@ article{
     margin-left:5rem;
     margin-bottom:5rem;
     padding: 2rem;
+    font-size: 21px;
+}
+
+.tours_pic{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to bottom, #ffffff, #7be2fe, #ffffff);
+
+}
+
+.tours_pic p{
+    text-align: center;
+    color: #121212;
+    font-size: large;
+    font-style: bold;
+    font-family: sans-serif;
+}
+
+.tour-img img{
+    margin-top: 1.6rem;
+    margin-left: 1.6rem;
+    margin-right: 1.6rem;
+    margin-bottom: .6rem;
+    border-radius: 3%;
+    border-style: rgb(113, 99, 99) solid;
 }
 
 .contact-container{

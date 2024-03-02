@@ -1,3 +1,4 @@
+// for navigation bar
 document.querySelectorAll('nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -10,13 +11,15 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
         behavior: 'smooth'
       });
   
-      // Highlight active section
       document.querySelectorAll('nav ul li a').forEach(anchor => {
         anchor.classList.remove('active-section');
       });
       this.classList.add('active-section');
     });
   });
+
+
+// for scroll to top button
 
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
@@ -34,6 +37,46 @@ scrollToTopBtn.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth"
+  });
+});
+
+// contact form
+
+$('.contact form').submit(function (event) {
+  event.preventDefault();
+
+  var name = $('input[name=name]').val().trim();
+  var email = $('input[name=email]').val().trim();
+
+  if (name === '' || email === '') {
+      alert('Please fill in the required fields (Name and Email).');
+      return;
+  }
+
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+  }
+
+  var formData = {
+      name: name,
+      email: email,
+      subject: $('input[name=subject]').val(),
+      message: $('textarea[name=message]').val()
+  };
+
+  $.ajax({
+      type: 'POST',
+      url: './datainfo.php',
+      data: formData,
+      success: function (response) {
+          alert(response.message);
+          $('.contact form')[0].reset();
+      },
+      error: function (error) {
+          console.error('Error:', error);
+      }
   });
 });
 

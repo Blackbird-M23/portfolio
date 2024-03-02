@@ -8,7 +8,9 @@
     
 
     
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <link rel="stylesheet" href="mediaqueries.css">
     <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Yatra One' rel='stylesheet'>
@@ -61,22 +63,39 @@
         
     
             <div class="home-img-soc">
+                <?php
+                include 'include/config.php';
+                $sql = "SELECT * FROM home";
+                $result = mysqli_query($connecction, $sql);
+                $data = mysqli_fetch_assoc($result);
+                ?>
+
                 <div id="home-img">
-                    <img src="my_image.jpg" alt="my_image">
+                    <?php echo "<img src='{$data['home_img_src']}' alt='{$data['home_img_alt']}' >" ?>
                 </div>
-        
+                <!-- UPDATE home_social
+SET img_alt = 'Github Profile'
+WHERE social_img_src = 'github.png'; -->
+                
+
                 <div id="socials">
                     <div id = "socials-intro">
                         <p>Hi! I'm
-                            <h2 style="color: gold;">Farhan Miraz Shihab</h2> Student<br>Computer Science & Engineering<br> a learner, movie enthusiast</p>
+                            <h2 class="MyName">Farhan Miraz Shihab</h2> 
+                            <?php echo $data['para'] ?> 
                     </div>
-                    <div class="social-links">                    
-                        <img src="github.png" alt="Github profile" onclick="window.open('https://github.com/Blackbird-M23')" height="30"
-                            width="30">
-                        <img src="facebook.png" alt="Facebook Profile" onclick="window.open('https://www.facebook.com/creedofarhan')"
-                            height="30" width="30">
-                        <img src="instagram.png" alt="Instagram Profile"
-                            onclick="window.open('https://www.instagram.com/farhanmirazshihab/')" height="30" width="30">
+                    <?php
+                    $sql = "SELECT * FROM home_social";
+                    $result = mysqli_query($connecction, $sql);
+                    ?>
+                    <div class="social-links"> 
+                        
+                        <?php
+                        while ($data = mysqli_fetch_assoc($result)) {
+                            echo "<img src='{$data['social_img_src']}' alt='{$data['img_alt']}' onclick=\"window.open('{$data['link']}')\" height='30' width='30'>";
+                        }
+                        mysqli_free_result($result);
+                        ?>
                     </div>
                 </div>
             </div>
@@ -95,20 +114,36 @@
                 <p style="font-family: Garamond, serif">learn more</p>
                 <h2 style="font-family: 'Yatra one'">About me</h2>
             </div>
-            
-            <div class="about-img">
+            <?php
+        
+            $sql = "SELECT * FROM about_me where id = 1;";
+            $result = mysqli_query($connecction, $sql);
+            if ($result) {
+                $data = mysqli_fetch_assoc($result);
+                    echo '<div class="about-img">';
+                    echo "<img src='{$data['about_img_src']}' alt='{$data['about_img_alt']}' height='30' width='30'>";
+                    echo '</div>';
+                    echo '<div class="about-paragraph">';
+                    echo '<p class="about-p" style="font-family: \'Courier New\', monospace;">';
+                    echo $data["para"];
+                    echo '</p>';
+                    echo '</div>';
+                }
+            ?>
+
+            <!-- <div class="about-img">
                 <img src="my_image.jpg" alt="my_image" >
             </div>
             
             <div class="about-paragraph">
-                <p style="font-family: 'Courier New'" , monospace>
+                <p class="about-p" style="font-family: 'Courier New'" , monospace>
                     I am from Bangladesh and currently an undergraduate 3<sup>rd</sup> year student of Computer Science and
                     Engineering at <a href="https://www.kuet.ac.bd/" target="_blank"><strong>Khulna University of Engineering &
                             Technology. </strong></a>I have created some <strong>Projects</strong> using c++ and java. I am in a
                     pursuit of gaining new skills. I like to learn and am learning new things and trying to apply those
                     knowledge in my life. I like to read books, sketch, watch movies, go on tours in my leisure time.
                 </p>
-            </div>
+            </div> -->
         </div>
 
         <h2 class="exp" style="text-align:center;">Experience</h2>
@@ -116,7 +151,31 @@
             <div class="exp-details-container">  
                     <div class="skills-container"            style="background-color: lightblue;">
                         <h3 class="skill-tools" style="color: rgb(15, 53, 86);">Languages </h3>
-                        <div class="skill-details-container">
+
+                        <?php
+                        // include 'include/config.php';
+                        $query = "SELECT * FROM experience where skills_tools ='language'";
+                        $result = mysqli_query($connecction, $query);
+
+                        if ($result) {
+                            echo '<div class="skill-details-container">';
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<article>';
+                                echo '<div>';
+                                echo '<h4>' . $row['skills_tools_name'] . '</h4>';
+                                echo '<p>' . $row['proficiency_level'] . '</p>';
+                                echo '</div>';
+                                echo '</article>';
+                            }
+                            
+                            echo '</div>';
+                        } else {
+                            echo "Error: " . mysqli_error($connection);
+                        }
+
+                        ?>
+
+                        <!-- <div class="skill-details-container">
                             <article>
                                 <div>
                                     <h4>C</h4>
@@ -135,37 +194,32 @@
                                     <p>Intermediate</p>
                                 </div>
                             </article>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="skills-container" style="background-color: rgb(238, 242, 199);">
 
                         <h3 class="skills-tools" style="color: rgb(255, 135, 95);">Tools</h3>
-                        <div class="skill-details-container">
-                            <article>
-                                <div>
-                                    <h4>Codeblocks</h4>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <div>
-                                    <h4>VS Code</h4>
-                                    <p>Experienced</p>
-                                </div>
-                            </article>
-                            <article>
-                                <div>
-                                    <h4>Intellij IDEA</h4>
-                                    <p>Intermediate</p>
-                                </div>
-                            </article>
-                            <article>
-                                <div>
-                                    <h4>Android Studio</h4>
-                                    <p>Basic</p>
-                                </div>
-                            </article>
-                        </div>
+                        <?php
+                        $query = "SELECT * FROM experience where skills_tools ='tool'";
+                        $result = mysqli_query($connecction, $query);
+
+                        if ($result) {
+                            echo '<div class="skill-details-container">';
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<article>';
+                                echo '<div>';
+                                echo '<h4>' . $row['skills_tools_name'] . '</h4>';
+                                echo '<p>' . $row['proficiency_level'] . '</p>';
+                                echo '</div>';
+                                echo '</article>';
+                            }
+                            
+                            echo '</div>';
+                            mysqli_free_result($result);
+                        } else {
+                            echo "Error: " . mysqli_error($connection);
+                        }
+                        ?>
                     </div>
             </div>
         </section>
@@ -181,7 +235,34 @@
         <div class="timeline-containers-container">
             <br>
             <br>
-            <div class="timeline-container">
+           <?php
+            $query = "SELECT * FROM timeline_data ORDER BY id DESC;";
+            $result = mysqli_query($connecction, $query);
+
+            if ($result) {
+                echo '<div class="timeline-container">';
+                echo '<ul>';
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<li>';
+                    echo '<div class="timeline-details">';
+                    echo '<img src="' . $row['logo_path'] . '" alt="' . $row['logo_alt'] . '" height="28" width="28">';
+                    echo '<a href="' . $row['link'] . '" target="_blank"><strong>' . $row['institution_name'] . '</strong></a>';
+                    echo '<p style="font-family: Garamond, serif;">' . $row['description'] . '</p>';
+                    echo '</div>';
+                    echo '</li>';
+                }
+
+                echo '</ul>';
+                echo '</div>';
+
+                mysqli_free_result($result);
+            } else {
+                echo "Error: " . mysqli_error($connection);
+            }
+            ?>
+        
+
+            <!-- <div class="timeline-container">
                 <ul>
                     <li>
                         <div class="timeline-details">
@@ -216,7 +297,7 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
             
         </div>
     </section>
@@ -232,6 +313,54 @@
         <h2 style="font-family: 'Convergence'; font-size: xx-large; text-align: center;margin-bottom: 3rem;">Projects</h2>
         <br>
         <div class="project-container">
+            <?php
+
+            $query = "SELECT * FROM projects";
+            $result = mysqli_query($connecction, $query);
+
+            if ($result) {
+                echo '<div class="project-holder">';
+                echo '<ul>';
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<li>';
+                    echo '<div class="project-details">';
+                    echo '<div class="project-img">';
+                    echo '<img src="' . $row['project_image'] . '" alt="' . $row['project_name'] . '" height="190" width="250">';
+                    echo '</div>';
+                    echo '<div class="project-description">';
+                    echo '<h3>' . $row['project_name'] . '</h3>';
+                    echo '<p style="font-family: \'Cormorant\'">' . $row['project_description'] . '<br>';
+                    echo '<button class="code_link_button" onclick="window.open(\'' . $row['code_link'] . '\', \'_blank\')">Code Link</button>';
+                    echo '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</li>';
+                }
+
+                echo '</ul>';
+                echo '</div>';
+
+                mysqli_free_result($result);
+            } else {
+                echo "Error: " . mysqli_error($connection);
+            }
+            ?>
+        </div>
+
+            <!-- <div class="project-holder">
+                <ul>
+                    <li>
+                        <div class="project-details">
+                            <div class="project-img">
+                                <img src="food.jpg" alt="food management system" height="190" width="250">
+                            </div>
+                            <div class="project-description">
+                                <h3>Food Management System</h3>
+                                        <p style="font-family: 'Cormorant'">I had created a simple food management system using C++ which willrun on terminal, where it could be used for the cashier. It would show the menu for the customer and it would show which items the customer has choosen and in the end, it would show a bill of the order.it would show which items the customer has choosen and in the end, it would show a bill of the order.
+                                    <br>
+                                    <button id = "link_button1" class="code_link_button"
+                                        onclick="window.open('    
             <div class="project-holder">
                 <ul>
                     <li>
@@ -252,8 +381,8 @@
                             </div>
                         </div>
                         
-                        
-                        
+                        INSERT INTO projects (project_name, project_image, project_description, github_link)
+  
                     </li>
                     <li>
                         <div class="project-details">
@@ -273,7 +402,7 @@
                 </ul>
             </div>
             
-        </div>
+       </div> -->
     </section>
 
     <br><br>
@@ -286,6 +415,41 @@
             <div class="books-div">
                 <h2 style="font-family: Protest Revolution , sans-serif; font-size: 25px; margin-bottom: 1.6rem; text-align: center;">Books</h2>
                 <br>
+
+                <!-- <div class="fav-book">
+                        <h3 style="text-align: center;
+                        font-family: Protest Strike, sans-serif; background-color: antiquewhite; margin-bottom: 1rem;">Favourite</h3> -->
+
+                <?php
+
+                /*$query = "SELECT * FROM favorite_books";
+                $result = mysqli_query($connection, $query);
+
+                if ($result) {
+                    echo '<ul>';
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<li>';
+                        echo '<div class="book-description">';
+                        echo '<img src="' . $row['image_path'] . '" alt="' . $row['book_title'] . '" height="290" width="250">';
+                        echo '<p style="font-family: \'Darker Grotesque\'">' . $row['description'] . '<br>';
+                        echo 'One of my most favourite books of <a href="' . $row['author_link'] . '" target="_blank">' . $row['author_name'] . '</a>.';
+                        echo '</p>';
+                        echo '</div>';
+                        echo '</li>';
+                    }
+
+                    echo '</ul>';
+                    echo '</div>';
+
+                    mysqli_free_result($result);
+                } else {
+                    echo "Error: " . mysqli_error($connection);
+                } */
+
+                 ?>
+
+
                     <div class="fav-book">
                         <h3 style="text-align: center;
                         font-family: Protest Strike, sans-serif; background-color: antiquewhite; margin-bottom: 1rem;">Favourite</h3>
@@ -323,12 +487,26 @@
                         </ul>   
                     </div>  
             </div>
-            <div>
+            <!-- <div>
                 <h3 style="font-family: Protest Revolution , sans-serif; font-size: 25px; margin-bottom: 1.6rem; text-align: center;">Sketch</h3>
-            </div>
-            <div>
-                <h3 style="font-family: Protest Revolution , sans-serif; font-size: 25px; margin-bottom: 1.6rem; text-align: center;">Tours</h3>
-
+            </div> -->
+            <div >
+                <h3 style="font-family: Protest Revolution , sans-serif; font-size: 25px; margin-bottom: 3rem; text-align: center;">Tours</h3>
+                <div class="tours_pic">
+                    <?php
+                    $sql = "SELECT * FROM tours";
+                    $result = mysqli_query($connecction, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo '<div class="tour-img">';
+                            echo '<img src="' . $row["image_src"] . '" alt="' . $row["image_alt"] . '" height="290" width="350">';
+                            echo '<p>' . $row["description"] . '</p>';
+                            echo '</div>';
+                        }
+                    }
+                    ?>
+                    
+                </div>
             </div>
         </div>
     </section>
@@ -357,35 +535,62 @@
                         <h1>Address</h1>
                         <h5>Dept. of CSE, KUET, Khulna, Bangladesh</h5>
                     </div>
+
+                    <?php
+                    $sql = "SELECT * FROM home_social";
+                    $result = mysqli_query($connecction, $sql);
+                    ?>
                     <div class="card-wrapper-socials">
-                        <a href="https://www.facebook.com/creedofarhan" target="_blank"><img src="facebook.png" alt="facebook link" height="25" width="25"></a> 
-                        <a href="https://www.instagram.com/farhanmirazshihab/" target="_blank"><img src="instagram.png" alt="instagram link" height="25" width="25"></a> 
-                        <a href="https://github.com/Blackbird-M23" target="_blank"> <img src="github.png" alt="github link" height="25" width="25"></a>
+                        <?php
+                            while ($data = mysqli_fetch_assoc($result)) {
+                                echo "<img src='{$data['social_img_src']}' alt='{$data['img_alt']}' onclick=\"window.open('{$data['link']}')\" height='25' width='25'>";
+                            }
+                            mysqli_free_result($result);
+                            ?>
                     </div>
 
                 </div>
+                
                 <div class="message-div">
+                
+                    <!-- // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    //     $name = $_POST["name"];
+                    //     $email = $_POST["email"];
+                    //     $subject = $_POST["subject"];
+                    //     $message = $_POST["body"];
+
+                    //     $sql = "INSERT INTO your_table_name (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
+
+                    //     if (mysqli_query($connection, $sql)) {
+                    //         echo "Message sent successfully.";
+                    //     } else {
+                    //         echo "Error: " . $sql . "<br>" . mysqli_error($connecction);
+                    //     }
+                    // }
+                    */ -->
+                
+
                     <div class="message-div-header">
                         <h1>Message me</h1>
                     </div>
-                    <form class="form-class" action="#">
+                    <form class="form-class"  action= "include/datainfo.php" method="post">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name" id="name" required="">
+                                <input type="text" name="name" placeholder="Name" required="">
                             </div>
                             <div class="field email">
-                                <input type="email" placeholder="Email" id="email" required="">
+                                <input type="email" name="email" placeholder="Email" id="email" required="">
                             </div>
                             <div class="field subject">
-                                <input type="text" placeholder="Subject" id="subject" required="">
+                                <input type="text" name="subject" placeholder="Subject" id="subject" required="">
                             </div>
                         
                             <div class="field textarea">
-                                <textarea cols="30" rows="10" placeholder="Message.." id="body" required=""></textarea>
+                                <textarea cols="30" rows="10" name="message" placeholder="Message.." id="body" required=""></textarea>
                             </div>
                         </div>
                         <div class="btn__container__contact">
-                            <button class="btn btn-color-1" type="submit" onclick="sendEmail()">Send message</button>
+                            <button class="btn btn-color-1" type="submit">Send message</button>
                         </div>
                     </form>
                 </div>                

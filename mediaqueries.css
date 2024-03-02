@@ -204,8 +204,28 @@
     }
 
 
-
+    .tours_pic{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+        justify-content: space-evenly;
+        background-image: linear-gradient(to bottom #ffffff, #7be2fe, #3883da);
+    }
     
+    .tours_pic p{
+        text-align: center;
+        color: #0f0f0f;
+        font-size: large;
+        font-style: bold;
+        font-family: 'Darker Grotesque', sans-serif;
+    }
 
-    
+    .tour-img img{
+        margin: 1.6rem;
+        border-radius: 3%;
+        border-style: rgb(113, 99, 99) solid;
+        width: 70%;
+        height: 70%;
+    } 
 }
