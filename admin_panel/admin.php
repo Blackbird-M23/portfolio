@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['isUserLoggedIn'])) {
+		header("Location: login.php");
+		exit;
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <style>
+        h2{
+            text-align: center;
+            margin-top:5rem;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -16,6 +27,7 @@
         }
         th {
             background-color: #f2f2f2;
+            text-align: center;
         }
         tr:nth-child(even) {
             background-color: #f2f2f2;
@@ -35,6 +47,10 @@
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
+            border-radius: 5px;
+        }
+        td{
+            text-align: center;
         }
     </style>
 </head>
@@ -259,5 +275,7 @@
             ?>
         </table>
     </div>
+    <a href="logout.php?logout=yes" class="button" style="background-color:blue; color: orange" >SignOut</a>
+
 </body>
 </html>
