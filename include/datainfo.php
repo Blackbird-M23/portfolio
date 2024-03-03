@@ -23,7 +23,9 @@
         
         if ($stmt->execute([$name, $email, $subject, $message])) {
             $response = array('status' => 'success', 'message' => 'Message sent successfully!');
-            //header('Location: /portfolio2.0/#contact');
+            header('Location: /portfolio2.0/#contact');
+            form.reset();
+            alert(data.message);
             
         } else {
             $response = array('status' => 'error', 'message' => 'Failed to insert data into the database.');

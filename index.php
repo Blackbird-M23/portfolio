@@ -588,7 +588,7 @@ WHERE social_img_src = 'github.png'; -->
         </div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/4819b39a8f.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/4819b39a8f.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -614,7 +614,7 @@ WHERE social_img_src = 'github.png'; -->
             .catch(error => console.error("Error:", error));
         });
     });
-    </script>
+    </script> -->
     
 </body>
 
