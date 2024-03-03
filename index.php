@@ -556,7 +556,7 @@ WHERE social_img_src = 'github.png'; -->
                     <div class="message-div-header">
                         <h1>Message me</h1>
                     </div>
-                    <form class="form-class"  action= "include/datainfo.php" method="post">
+                    <form class="form-class"  action= "include/datainfo.php" method="post" id="messageForm">
                         <div class="fields">
                             <div class="field name">
                                 <input type="text" name="name" placeholder="Name" required="">
@@ -590,6 +590,31 @@ WHERE social_img_src = 'github.png'; -->
 
     <script src="https://kit.fontawesome.com/4819b39a8f.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let form = document.getElementById("messageForm");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // AJAX request to submit the form data
+            let formData = new FormData(form);
+            fetch("datainfo.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    form.reset();
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+    </script>
     
 </body>
 
