@@ -70,7 +70,7 @@
                 $data = mysqli_fetch_assoc($result);
                 ?>
 
-                <div id="home-img">
+                <div class="home-img">
                     <?php echo "<img src='{$data['home_img_src']}' alt='{$data['home_img_alt']}' >" ?>
                 </div>
                 <!-- UPDATE home_social
@@ -588,9 +588,9 @@ WHERE social_img_src = 'github.png'; -->
         </div>
     </footer>
 
-    <!-- <script src="https://kit.fontawesome.com/4819b39a8f.js" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/4819b39a8f.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-    <script>
+    <!-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         let form = document.getElementById("messageForm");
         form.addEventListener("submit", function(event) {

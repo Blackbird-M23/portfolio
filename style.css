@@ -113,10 +113,8 @@ hr.rounded {
 }
 
 
-#home-img img{
-    height: 190px;
-    width: 380px;
-}
+
+
 .home-img-soc{
     display: flex;
     flex-direction: row;
@@ -125,6 +123,11 @@ hr.rounded {
     font-size:x-large;
     height: 80%;
     padding-top: 10rem;
+}
+
+.home-img img{
+    height: 350px;
+    width: 380px;
 }
 
 #socials-intro{
